@@ -1,4 +1,12 @@
-/* @flow */
+/* @flow */ 
+/**
+ * 该模块主要是为 Vue 注入浏览器平台相关的功能模块（为Web 扩展）
+ *  1. Node 相关的工具API
+ *  2. 扩展指令和组件功能(todo)
+ *  3. 扩展虚拟DOM（todo）
+ *  4. 添加 $mount 方法：提供另一种创建Vue实例的方法（todo）。
+ *  5. 浏览器环境下，检测并开启 devtools。
+*/
 
 import Vue from 'core/index'
 import config from 'core/config'
@@ -32,6 +40,7 @@ extend(Vue.options.components, platformComponents)
 
 // install platform patch function
 Vue.prototype.__patch__ = inBrowser ? patch : noop
+
 
 // public mount method
 Vue.prototype.$mount = function (

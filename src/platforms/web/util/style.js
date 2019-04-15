@@ -2,6 +2,9 @@
 
 import { cached, extend, toObject } from 'shared/util'
 
+/*
+ * 解析字符串，并将解析结果缓存下来，因为 style 通常是会重复的，所以通过缓存客户大大的提高解析性能。
+*/
 export const parseStyleText = cached(function (cssText) {
   const res = {}
   const listDelimiter = /;(?![^(]*\))/g

@@ -3,6 +3,10 @@
 import { inBrowser } from 'core/util/env'
 import { makeMap } from 'shared/util'
 
+/**
+ * HTML 标签名的问题： 是否是 HTML Tag，是否是 SVG, 
+*/
+
 export const namespaceMap = {
   svg: 'http://www.w3.org/2000/svg',
   math: 'http://www.w3.org/1998/Math/MathML'
@@ -48,6 +52,9 @@ export function getTagNamespace (tag: string): ?string {
   }
 }
 
+/**
+ * 通过判断创建后的Node 对象是否是 HTMLElement 来判断，因为如果是 HTML 中已有的标签元素，那么构建函数一定会是对应类型的构建函数。
+*/
 const unknownElementCache = Object.create(null)
 export function isUnknownElement (tag: string): boolean {
   /* istanbul ignore if */

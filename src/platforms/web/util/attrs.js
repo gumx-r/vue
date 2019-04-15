@@ -2,9 +2,14 @@
 
 import { makeMap } from 'shared/util'
 
+/*
+ * Vue 中用到的 DOM 属性的相关问题： 是否是 Vue 保留属性，是否是可枚举属性、是否是允许编辑的属性、值为boolean的属性。xlink()
+ * xlink: XML链接语言，或XLink，是一种通过W3C推荐标准认证的XML标记语言，用于在 XML 文档中创建超链接，以及提供与这些链接相关联的元数据,例如 img 标签 object 标签
+*/
+
 // these are reserved for web because they are directly compiled away
 // during template compilation
-export const isReservedAttr = makeMap('style,class')
+export const isReservedAttr = makeMap('style,class') //是否是保留属性
 
 // attributes that should be using props for binding
 const acceptValue = makeMap('input,textarea,option,select,progress')

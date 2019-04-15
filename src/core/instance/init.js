@@ -47,7 +47,7 @@ export function initMixin (Vue: Class<Component>) {
     } else {
       vm._renderProxy = vm
     }
-    // expose real self
+    // expose real self 
     vm._self = vm
     initLifecycle(vm)
     initEvents(vm)

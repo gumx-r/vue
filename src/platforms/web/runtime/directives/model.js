@@ -3,6 +3,11 @@
  * properties to Elements.
  */
 
+ /**
+ * 指令部分
+ * 特殊处理：IE9 会注册监听选择事件，并下发为 input 事件，为什么？
+ */
+
 import { isTextInputType } from 'web/util/element'
 import { looseEqual, looseIndexOf } from 'shared/util'
 import { mergeVNodeHook } from 'core/vdom/helpers/index'
@@ -138,6 +143,9 @@ function onCompositionEnd (e) {
   trigger(e.target, 'input')
 }
 
+/**
+ * 创建一个冒泡事件，并分发下去。（用于创建自定义类型的事件）
+*/
 function trigger (el, type) {
   const e = document.createEvent('HTMLEvents')
   e.initEvent(type, true, true)
